@@ -14,6 +14,10 @@ class CrudsController extends Controller
         return response(Crud::all()->jsonSerialize(), Response::HTTP_OK);
     }
 
+    /**
+     * @param Generator $faker
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
+     */
     public function create(Generator $faker)
     {
         $crud = new Crud();
