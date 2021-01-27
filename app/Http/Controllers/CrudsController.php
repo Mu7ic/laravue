@@ -28,6 +28,11 @@ class CrudsController extends Controller
         return response($crud->jsonSerialize(), Response::HTTP_CREATED);
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
+     */
     public function update(Request $request, $id)
     {
         $crud = Crud::findOrFail($id);
