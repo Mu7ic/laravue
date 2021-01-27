@@ -14,6 +14,10 @@ class CrudsController extends Controller
         return response(Crud::all()->jsonSerialize(), Response::HTTP_OK);
     }
 
+    /**
+     * @param Generator $faker
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
+     */
     public function create(Generator $faker)
     {
         $crud = new Crud();
@@ -24,6 +28,11 @@ class CrudsController extends Controller
         return response($crud->jsonSerialize(), Response::HTTP_CREATED);
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
+     */
     public function update(Request $request, $id)
     {
         $crud = Crud::findOrFail($id);
@@ -33,6 +42,10 @@ class CrudsController extends Controller
         return response(null, Response::HTTP_OK);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
+     */
     public function destroy($id)
     {
         Crud::destroy($id);
