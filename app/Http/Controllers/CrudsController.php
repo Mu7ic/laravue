@@ -42,6 +42,10 @@ class CrudsController extends Controller
         return response(null, Response::HTTP_OK);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|Response
+     */
     public function destroy($id)
     {
         Crud::destroy($id);
